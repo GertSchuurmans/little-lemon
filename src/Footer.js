@@ -3,7 +3,7 @@ import logo from "./Logo.svg"
 function Footer() {
 
     return (
-        <footer>
+        <footer className="compact">
             <img className="footer-logo" src={logo} alt="footer logo"/>
             <div className="footer-column">
                 <h3>Doormat Navigation</h3>

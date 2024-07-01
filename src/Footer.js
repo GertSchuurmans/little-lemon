@@ -4,27 +4,27 @@ function Footer() {
 
     return (
         <footer>
-            <img src={logo} alt="footer logo"/>
+            <img className="footer-logo" src={logo} alt="footer logo"/>
             <div className="footer-column">
                 <h3>Doormat Navigation</h3>
-                <ul>
+                <ul className="nav-list">
                     <li>
-                        <a href="/home">Home</a>
+                        <a className="nav-link" href="/home">Home</a>
                     </li>
                     <li>
-                        <a href="/about">About</a>
+                        <a className="nav-link" href="/about">About</a>
                     </li>
                     <li>
-                        <a href="/menu">Menu</a>
+                        <a className="nav-link" href="/menu">Menu</a>
                     </li>
                     <li>
-                        <a href="/reservations">Reservations</a>
+                        <a className="nav-link" href="/reservations">Reservations</a>
                     </li>
                     <li>
-                        <a href="/order-online">Order Online</a>
+                        <a className="nav-link" href="/order-online">Order Online</a>
                     </li>
                     <li>
-                        <a href="/login">Login</a>
+                        <a className="nav-link" href="/login">Login</a>
                     </li>
                 </ul>
             </div>

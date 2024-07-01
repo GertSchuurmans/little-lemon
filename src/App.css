@@ -26,7 +26,14 @@ header nav {
 nav ul {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 2rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+  nav ul {
+    gap: 1rem;
+  }
 }
 
 .nav-link {
@@ -46,4 +53,54 @@ footer {
 .nav-list {
   list-style: none;
   padding-left: 0;
+}
+
+h1, h2 {
+ font-family: 'Markazi Text';
+ color: #EDEFEE;
+}
+
+h3, h4, h5, h6, p, span, li {
+  font-family: 'Karla';
+  color: #333333;
+}
+
+h1 {
+  font-size: 64px;
+  color: #F4CE14;
+  font-weight: medium;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 18px
+}
+
+h6 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 16px;
+}
+
+span {
+  font-size: 16px;
+}
+
+button {
+  background-color: #F4CE14;
+  border-radius: 20px;
+  color: #EDEFEE;
 }

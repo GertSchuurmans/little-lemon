@@ -1,4 +1,4 @@
-import Testimonial from "../Testimonial";
+import Testimonial from "./Testimonial";
 import person1 from "../Benjamin.jpg"
 import person2 from "../happyman.jpg"
 import person3 from "../woman.jpg"

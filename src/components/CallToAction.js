@@ -1,4 +1,5 @@
 import restaurantFood from "../restauranfood.jpg"
+import { Link } from "react-router-dom";
 
 function CallToAction() {
     return (
@@ -10,7 +11,7 @@ function CallToAction() {
                     <p>
                         We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
-                    <button>Reserve a table</button>
+                    <Link to="/booking"><button>Reserve a table</button></Link>
                 </div>
                 <img src={restaurantFood} alt="Food being presented"/>
             </div>

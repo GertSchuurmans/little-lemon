@@ -38,6 +38,12 @@ nav ul {
 .nav-link {
   text-decoration: none;
   color: black;
+  transition: ease, 500ms;
+}
+
+.nav-link:hover {
+  background-color: #F4CE14;
+  transition: ease, 500ms;
 }
 
 footer {
@@ -111,6 +117,13 @@ button {
   font-weight: 600;
   line-height: 1rem;
   height: fit-content;
+  transition: ease, 500ms;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #EDEFEE;
+  transition: ease, 500ms;
 }
 
 .primary-background {

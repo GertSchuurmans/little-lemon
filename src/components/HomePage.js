@@ -2,7 +2,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import CallToAction from './CallToAction';
-import Specials from './Specials';
+import Specials from '../Specials';
 import CustomersSay from './CustomersSay';
 import Chicago from './Chicago';
 

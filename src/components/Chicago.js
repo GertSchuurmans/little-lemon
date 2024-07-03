@@ -1,5 +1,5 @@
-import restaurantFood from "./restauranfood.jpg"
-import mario from "./mario.jpg"
+import restaurantFood from "../restauranfood.jpg"
+import mario from "../mario.jpg"
 
 function Chicago() {
     return (

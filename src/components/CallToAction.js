@@ -1,4 +1,4 @@
-import restaurantFood from "./restauranfood.jpg"
+import restaurantFood from "../restauranfood.jpg"
 
 function CallToAction() {
     return (

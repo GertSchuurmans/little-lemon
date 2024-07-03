@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import BookingPage from './BookingPage';
+import BookingPage from './components/BookingPage';
 import { BrowserRouter } from 'react-router-dom';
 
 test('Renders the BookingForm heading', () => {

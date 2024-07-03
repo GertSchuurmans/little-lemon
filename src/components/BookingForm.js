@@ -47,7 +47,7 @@ function BookingForm() {
                 <label htmlFor="email">Email address</label>
                 <input required type="email" id="email" value={formValues.email} onChange={(e) => onChangeHandler({ ...formValues, email: e.currentTarget.value })}/>
 
-                <input aria-label="Submit reservation" disabled={!formComplete()} type="submit" value="Make Your Reservation"/>
+                <input title={formComplete() ? "Submit reservation" : "Not all fields have been filled in"} aria-label="Submit reservation" disabled={!formComplete()} type="submit" value="Make Your Reservation"/>
             </form>
         </>
     );

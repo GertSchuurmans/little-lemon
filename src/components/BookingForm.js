@@ -17,8 +17,8 @@ function BookingForm() {
     }
 
     return (
-        <>
-            <h1 className="compact">Book a table</h1>
+        <section className="form-container primary-background">
+            <h1 className="compact reservation-title">Book a table</h1>
             <form className="book-form compact" onSubmit={submitForm}>
                 <label htmlFor="res-date">Choose date</label>
                 <input required type="date" id="res-date" value={formValues.date}
@@ -47,9 +47,9 @@ function BookingForm() {
                 <label htmlFor="email">Email address</label>
                 <input required type="email" id="email" value={formValues.email} onChange={(e) => onChangeHandler({ ...formValues, email: e.currentTarget.value })}/>
 
-                <input title={formComplete() ? "Submit reservation" : "Not all fields have been filled in"} aria-label="Submit reservation" disabled={!formComplete()} type="submit" value="Make Your Reservation"/>
+                <input className="submit-button" title={formComplete() ? "Submit reservation" : "Not all fields have been filled in"} aria-label="Submit reservation" disabled={!formComplete()} type="submit" value="Make Your Reservation"/>
             </form>
-        </>
+        </section>
     );
 }
 

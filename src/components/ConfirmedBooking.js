@@ -7,9 +7,11 @@ function ConfirmedBooking() {
         <>
             <Header/>
             <Main>
-                <section class="compact">
-                    <h1>Your booking has been confirmed!</h1>
-                    <p>We are happy to welcome you soon!</p>
+                <section class="confirmation primary-background">
+                    <div className="compact">
+                        <h1>Your booking has been confirmed!</h1>
+                        <p>We are happy to welcome you soon!</p>
+                    </div>
                 </section>
             </Main>
             <Footer/>

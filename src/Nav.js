@@ -15,7 +15,7 @@ function Nav() {
                     <a className="nav-link" href="/menu">Menu</a>
                 </li>
                 <li>
-                    <Link className="nav-link" to="booking">Reservations</Link>
+                    <Link className="nav-link" to="/booking">Reservations</Link>
                 </li>
                 <li>
                     <a className="nav-link" href="/order-online">Order Online</a>

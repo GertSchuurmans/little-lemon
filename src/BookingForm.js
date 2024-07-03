@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FormContext } from "./FormContext";
 
 function BookingForm() {
-    const {formValues, setFormValues, availableTimes} = useContext(FormContext);
+    const {formValues, setFormValues, availableTimes, submitForm} = useContext(FormContext);
 
     const onChangeHandler = (newValues) => {
         setFormValues(newValues);
@@ -15,7 +15,7 @@ function BookingForm() {
     return (
         <>
             <h1 className="compact">Book a table</h1>
-            <form className="book-form compact">
+            <form className="book-form compact" onSubmit={submitForm}>
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" value={formValues.date}
                     onChange={(e) => {

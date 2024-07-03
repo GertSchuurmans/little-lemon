@@ -1,4 +1,5 @@
 import logo from "./Logo.svg"
+import { Link } from "react-router-dom";
 
 function Footer() {
 
@@ -9,7 +10,7 @@ function Footer() {
                 <h3>Doormat Navigation</h3>
                 <ul className="nav-list">
                     <li>
-                        <a className="nav-link" href="/home">Home</a>
+                        <Link className="nav-link" to="/">Home</Link>
                     </li>
                     <li>
                         <a className="nav-link" href="/about">About</a>
@@ -18,7 +19,7 @@ function Footer() {
                         <a className="nav-link" href="/menu">Menu</a>
                     </li>
                     <li>
-                        <a className="nav-link" href="/reservations">Reservations</a>
+                        <Link className="nav-link" to="/booking">Reservations</Link>
                     </li>
                     <li>
                         <a className="nav-link" href="/order-online">Order Online</a>

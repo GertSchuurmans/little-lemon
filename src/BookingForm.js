@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FormContext } from "./FormContext";
 
 function BookingForm() {
-    const {formValues, setFormValues, availableTimes, dispatch} = useContext(FormContext);
+    const {formValues, setFormValues, availableTimes} = useContext(FormContext);
 
     const onChangeHandler = (newValues) => {
         setFormValues(newValues);
@@ -20,7 +20,6 @@ function BookingForm() {
                 <input type="date" id="res-date" value={formValues.date}
                     onChange={(e) => {
                         onChangeHandler({ ...formValues, date: e.currentTarget.value });
-                        dispatch(e.currentTarget.value);
                     }}
                 />
 

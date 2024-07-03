@@ -1,26 +1,20 @@
 import { FormContext } from "./FormContext";
-import { useReducer, useState } from "react";
+import { useState, useEffect } from "react";
 
 
 function Main({children}) {
     const [formValues, setFormValues] = useState({date: "", time: "17:00", guests: 1, occasion: "Birthday"});
+    const [apiTimes, setApiTimes] = useState([]);
 
-    function updateTimes(state, date) {
-        if (date.includes("-07-") || date.includes("-08-")) {
-            return [ "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
+    useEffect(() => {
+        if (window.fetchAPI !== undefined) {
+            setApiTimes(window.fetchAPI(new Date(formValues.date)));
         }
-        return [ "17:00", "18:00", "19:00", "20:00", "21:00"];
-    }
-
-    function initTimes() {
-        return [ "17:00", "18:00", "19:00", "20:00", "21:00"];
-    }
-
-    const [availableTimes, dispatch] = useReducer(updateTimes, initTimes());
+    }, [formValues.date]);
 
     return (
         <main>
-            <FormContext.Provider value={{formValues, setFormValues, availableTimes, dispatch}}>
+            <FormContext.Provider value={{formValues, setFormValues, availableTimes: apiTimes}}>
                 {children}
             </FormContext.Provider>
         </main>

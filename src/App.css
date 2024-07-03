@@ -279,3 +279,9 @@ button {
     margin-bottom: 0;
   }
 }
+
+.book-form {
+  display: grid;
+  max-width: 400px;
+  gap: 20px;
+}

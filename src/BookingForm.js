@@ -1,23 +1,26 @@
-import { useState } from "react";
-
-const availableTimes = [ "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+import { useContext } from "react";
+import { FormContext } from "./FormContext";
 
 function BookingForm() {
-    const [formValues, setFormValues] = useState({date: "", time: "17:00", guests: 1, occasion: "Birthday"});
+    const {formValues, setFormValues, availableTimes, dispatch} = useContext(FormContext);
 
     const onChangeHandler = (newValues) => {
-        console.log(newValues);
         setFormValues(newValues);
     }
 
     const availableTimesOptions = availableTimes.map(time => {
-        return (<option>{time}</option>);
+        return (<option key={time}>{time}</option>);
     })
 
     return (
-        <form className="compact" style={{display: "grid", "maxWidth": "400px", gap: "20px"}}>
+        <form className="book-form compact">
             <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" value={formValues.date} onChange={(e) => onChangeHandler({ ...formValues, date: e.currentTarget.value })}/>
+            <input type="date" id="res-date" value={formValues.date}
+                onChange={(e) => {
+                    onChangeHandler({ ...formValues, date: e.currentTarget.value });
+                    dispatch(e.currentTarget.value);
+                }}
+            />
 
             <label htmlFor="res-time">Choose time</label>
             <select id="res-time " value={formValues.time} onChange={(e) => onChangeHandler({ ...formValues, time: e.currentTarget.value })}>

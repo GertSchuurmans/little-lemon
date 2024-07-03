@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 
 function Main({children}) {
-    const [formValues, setFormValues] = useState({date: "", time: "", guests: 1, occasion: "Birthday"});
+    const [formValues, setFormValues] = useState({date: "", time: "", guests: 1, occasion: "Birthday", name: "", email: ""});
     const [apiTimes, setApiTimes] = useState([]);
     const Navigate = useNavigate();
 

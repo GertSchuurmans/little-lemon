@@ -43,7 +43,7 @@ test('Correct available times', () => {
   expect(timeInput.children.length).toBe(7);
 })
 
-test('Form submit', () => {
+test('Form submit disabled when empty', () => {
   window.submitAPI = jest.fn();
   render(
     <BrowserRouter>
@@ -53,5 +53,102 @@ test('Form submit', () => {
   const submitButton = screen.getByText("Make Your Reservation");
   expect(submitButton).toBeInTheDocument();
   fireEvent.click(submitButton);
+  expect(window.submitAPI).toHaveBeenCalledTimes(0);
+})
+
+test('Form submit missing time', () => {
+  window.submitAPI = jest.fn();
+  render(
+    <BrowserRouter>
+      <BookingPage />
+    </BrowserRouter>
+  );
+  const dateInput = screen.getByLabelText("Choose date");
+  fireEvent.change(dateInput, { target: { value: "2024-07-07"}});
+
+  const submitButton = screen.getByText("Make Your Reservation");
+  expect(submitButton).toBeInTheDocument();
+  fireEvent.click(submitButton);
+  expect(window.submitAPI).toHaveBeenCalledTimes(0);
+})
+
+test('Form submit missing name', () => {
+  window.submitAPI = jest.fn();
+  render(
+    <BrowserRouter>
+      <BookingPage />
+    </BrowserRouter>
+  );
+  const dateInput = screen.getByLabelText("Choose date");
+  const timeInput = screen.getByLabelText("Choose time");
+  fireEvent.change(dateInput, { target: { value: "2024-07-07"}});
+  fireEvent.change(timeInput, { target: { value: "17:00"}});
+
+  const submitButton = screen.getByText("Make Your Reservation");
+  expect(submitButton).toBeInTheDocument();
+  fireEvent.click(submitButton);
+  expect(window.submitAPI).toHaveBeenCalledTimes(0);
+})
+
+test('Form submit missing email', () => {
+  window.submitAPI = jest.fn();
+  render(
+    <BrowserRouter>
+      <BookingPage />
+    </BrowserRouter>
+  );
+  const dateInput = screen.getByLabelText("Choose date");
+  const timeInput = screen.getByLabelText("Choose time");
+  const nameInput = screen.getByLabelText("Name");
+  fireEvent.change(dateInput, { target: { value: "2024-07-07"}});
+  fireEvent.change(timeInput, { target: { value: "17:00"}});
+  fireEvent.change(nameInput, { target: { value: "Benjamin"}});
+
+  const submitButton = screen.getByText("Make Your Reservation");
+  expect(submitButton).toBeInTheDocument();
+  fireEvent.click(submitButton);
+  expect(window.submitAPI).toHaveBeenCalledTimes(0);
+})
+
+test('Form submit wrong email', () => {
+  window.submitAPI = jest.fn();
+  render(
+    <BrowserRouter>
+      <BookingPage />
+    </BrowserRouter>
+  );
+  const dateInput = screen.getByLabelText("Choose date");
+  const timeInput = screen.getByLabelText("Choose time");
+  const nameInput = screen.getByLabelText("Name");
+  const emailInput = screen.getByLabelText("Email address");
+  fireEvent.change(dateInput, { target: { value: "2024-07-07"}});
+  fireEvent.change(timeInput, { target: { value: "17:00"}});
+  fireEvent.change(nameInput, { target: { value: "Benjamin"}});
+  fireEvent.change(emailInput, { target: { value: "benjamin"}});
+
+  expect(emailInput.validity.typeMismatch).toBe(true);
+})
+
+test('Form submit', () => {
+  window.submitAPI = jest.fn();
+  render(
+    <BrowserRouter>
+      <BookingPage />
+    </BrowserRouter>
+  );
+  const dateInput = screen.getByLabelText("Choose date");
+  const timeInput = screen.getByLabelText("Choose time");
+  const nameInput = screen.getByLabelText("Name");
+  const emailInput = screen.getByLabelText("Email address");
+  fireEvent.change(dateInput, { target: { value: "2024-07-07"}});
+  fireEvent.change(timeInput, { target: { value: "17:00"}});
+  fireEvent.change(nameInput, { target: { value: "Benjamin"}});
+  fireEvent.change(emailInput, { target: { value: "benjamin@gmail.com"}});
+
+  const submitButton = screen.getByText("Make Your Reservation");
+  expect(submitButton).toBeInTheDocument();
+  fireEvent.click(submitButton);
   expect(window.submitAPI).toHaveBeenCalledTimes(1);
+
+  expect(emailInput.validity.typeMismatch).toBe(false);
 })
